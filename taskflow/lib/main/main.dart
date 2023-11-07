@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskflow/features/onboarding_screen/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        
         useMaterial3: true,
       ),
-      
+      home: OnBoardingScreen(),
     );
   }
 }
