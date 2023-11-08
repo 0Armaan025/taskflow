@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:taskflow/common/buttons/custom_continue_button.dart';
 import 'package:taskflow/constants/Pallete.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -23,10 +24,19 @@ final List<OnBoard> data = [
   OnBoard(
       image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVyaRJGo3Vm-m78De42-NPI2MMCD4Wt6tptQ&usqp=CAU",
-      title: "Organizations",
+      title: "Organizations -> connections become easy!",
       description: "You can join/create organizations effectively."),
-  OnBoard(image: "", title: "", description: ""),
-  OnBoard(image: "", title: "", description: ""),
+  OnBoard(
+      image:
+          "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRhc2tzfGVufDB8fDB8fHww",
+      title: "Tasks become friends!",
+      description:
+          "Your tasks become your friends, kill tasks with simplicity!"),
+  OnBoard(
+      image:
+          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D",
+      title: "Team work does the dream work!",
+      description: "Connect with your team, do work in real time and done!"),
 ];
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
@@ -112,36 +122,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
             ),
             // Privacy policy area
-            const Text("By proceeding you agree to our Privacy Policy"),
+            Row(
+              children: [
+                const Text("By proceeding you agree to our Privacy Policy."),
+              ],
+            ),
             // White space
             const SizedBox(
               height: 16,
             ),
             // Button area
-            InkWell(
-              onTap: () {
-                print("Button clicked!");
-              },
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 48),
-                height: size.height * 0.075,
-                width: size.width,
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Login / Registration",
-                    style: TextStyle(
-                      fontFamily: "HappyMonkey",
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            CustomContinueButton(
+                bgColor: Pallete().bgColor,
+                onTap: () {},
+                text: "Continue",
+                textColor: Pallete().buttonTextColor),
           ],
         ),
       ),
@@ -170,7 +165,7 @@ class OnBoardContent extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -178,6 +173,9 @@ class OnBoardContent extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
+        const Spacer(),
+        Image.network(image),
+        const Spacer(),
         Text(
           description,
           textAlign: TextAlign.center,
@@ -187,9 +185,9 @@ class OnBoardContent extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Spacer(),
-        Image.network(image),
-        const Spacer(),
+        const SizedBox(
+          height: 20,
+        ),
       ],
     );
   }
