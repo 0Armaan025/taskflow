@@ -26,10 +26,11 @@ class _CustomContinueButtonState extends State<CustomContinueButton> {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      height: size.height * 0.098,
+      height: size.height * 0.078,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
+        color: widget.bgColor,
         borderRadius: BorderRadius.circular(8),
       ),
     );

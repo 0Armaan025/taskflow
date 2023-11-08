@@ -123,6 +123,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             // Privacy policy area
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("By proceeding you agree to our Privacy Policy."),
               ],
@@ -133,10 +134,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             // Button area
             CustomContinueButton(
-                bgColor: Pallete().bgColor,
+                bgColor: Pallete().buttonColor,
                 onTap: () {},
                 text: "Continue",
                 textColor: Pallete().buttonTextColor),
+            const SizedBox(height: 20),
           ],
         ),
       ),
