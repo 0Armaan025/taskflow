@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:taskflow/common/buttons/custom_continue_button.dart';
 import 'package:taskflow/constants/Pallete.dart';
+import 'package:taskflow/constants/utils.dart';
+import 'package:taskflow/features/authentication/screens/signup/signup_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -135,7 +137,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             // Button area
             CustomContinueButton(
                 bgColor: Pallete().buttonColor,
-                onTap: () {},
+                onTap: () {
+                  moveScreen(context, isPushReplacement: false, SignUpScreen());
+                },
                 text: "Continue",
                 textColor: Pallete().buttonTextColor),
             const SizedBox(height: 20),
@@ -168,7 +172,7 @@ class OnBoardContent extends StatelessWidget {
           title,
           style: const TextStyle(
             color: Colors.black,
-            fontSize: 20,
+            fontSize: 17,
             fontWeight: FontWeight.bold,
           ),
         ),
