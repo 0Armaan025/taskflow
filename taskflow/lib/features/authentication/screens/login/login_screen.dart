@@ -4,21 +4,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taskflow/common/buttons/custom_signup_button.dart';
 import 'package:taskflow/common/text_fields/custom_text_field.dart';
 import 'package:taskflow/constants/Pallete.dart';
+import 'package:taskflow/constants/constants.dart';
 import 'package:taskflow/constants/utils.dart';
-import 'package:taskflow/features/authentication/screens/login/login_screen.dart';
+import 'package:taskflow/features/authentication/screens/signup/signup_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LogInScreen extends StatefulWidget {
+  const LogInScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LogInScreen> createState() => _LogInScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LogInScreenState extends State<LogInScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
 
   @override
   void dispose() {
@@ -26,7 +25,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _confirmPasswordController.dispose();
   }
 
   @override
@@ -90,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       elevation: 2.0,
                       child: Container(
-                        height: size.height * 0.76,
+                        height: size.height * 0.66,
                         width: double.infinity,
                         alignment: Alignment.center,
                         child: Column(
@@ -100,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             Center(
                               child: Text(
-                                " Sign Up ",
+                                " Sign In ",
                                 style: GoogleFonts.poppins(
                                   color: Pallete().headingTextColor,
                                   fontSize: 35,
@@ -122,12 +120,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               isObscure: true,
                               keyboardType: TextInputType.visiblePassword,
                             ),
-                            CustomTextField(
-                              controller: _confirmPasswordController,
-                              hintText: "Re-enter your password.",
-                              isObscure: true,
-                              keyboardType: TextInputType.visiblePassword,
-                            ),
                             const SizedBox(
                               height: 5,
                             ),
@@ -138,22 +130,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignment: Alignment.centerRight,
                               child: InkWell(
                                 onTap: () {
-                                  moveScreen(context, LogInScreen(),
+                                  moveScreen(context, SignUpScreen(),
                                       isPushReplacement: true);
                                 },
-                                child: const Text("Already a user?"),
+                                child: const Text("New to $appName?"),
                               ),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
-                            CustomSignUpButton(onTap: () {}, text: "Sign Up!"),
+                            CustomSignUpButton(onTap: () {}, text: "Sign In!"),
                             const SizedBox(
                               height: 10,
                             ),
                             Center(
                               child: Text(
-                                "Or sign up by using:-",
+                                "Or sign in by using:-",
                                 style: GoogleFonts.roboto(
                                   color: Colors.black,
                                   fontSize: 20,

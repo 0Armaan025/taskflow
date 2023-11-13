@@ -6,6 +6,8 @@ import 'package:taskflow/constants/Pallete.dart';
 import 'package:taskflow/constants/utils.dart';
 import 'package:taskflow/features/authentication/screens/signup/signup_screen.dart';
 
+import '../../authentication/screens/login/login_screen.dart';
+
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
 
@@ -138,7 +140,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             CustomContinueButton(
                 bgColor: Pallete().buttonColor,
                 onTap: () {
-                  moveScreen(context, isPushReplacement: false, SignUpScreen());
+                  moveScreen(context, isPushReplacement: false, LogInScreen());
                 },
                 text: "Continue",
                 textColor: Pallete().buttonTextColor),
