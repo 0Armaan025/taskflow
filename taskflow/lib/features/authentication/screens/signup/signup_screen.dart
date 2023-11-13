@@ -6,6 +6,7 @@ import 'package:taskflow/common/text_fields/custom_text_field.dart';
 import 'package:taskflow/constants/Pallete.dart';
 import 'package:taskflow/constants/utils.dart';
 import 'package:taskflow/features/authentication/screens/login/login_screen.dart';
+import 'package:taskflow/features/create_profile/create_profile_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -147,7 +148,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            CustomSignUpButton(onTap: () {}, text: "Sign Up!"),
+                            CustomSignUpButton(
+                                onTap: () {
+                                  moveScreen(context, CreateProfileScreen(),
+                                      isPushReplacement: true);
+                                },
+                                text: "Sign Up!"),
                             const SizedBox(
                               height: 10,
                             ),
