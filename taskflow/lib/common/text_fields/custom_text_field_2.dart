@@ -30,6 +30,7 @@ class _CustomTextField2State extends State<CustomTextField2> {
         ),
         controller: widget.controller,
         obscureText: widget.isObscure,
+        keyboardType: widget.keyboardType,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

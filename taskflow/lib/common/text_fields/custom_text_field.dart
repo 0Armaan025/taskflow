@@ -26,6 +26,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         controller: widget.controller,
         obscureText: widget.isObscure,
+        keyboardType: widget.keyboardType,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),

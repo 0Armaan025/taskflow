@@ -111,18 +111,26 @@ Widget makeStepOne(BuildContext context) {
               height: 20,
             ),
             Center(
-              child: Container(
-                width: double.infinity,
-                height: size.height * 0.08,
-                decoration: BoxDecoration(
-                  color: Colors.grey[400],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                alignment: Alignment.center,
-                child: IconButton(
-                  icon: Icon(Icons.add_a_photo),
-                  onPressed: () {},
-                ),
+              child: Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: NetworkImage(
+                        'https://cdn-icons-png.flaticon.com/128/4333/4333609.png'),
+                  ),
+                  Positioned(
+                    left: 60,
+                    top: 60,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.green,
+                        size: 30,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(
@@ -167,8 +175,8 @@ Widget makeStepOne(BuildContext context) {
 }
 
 Widget makeStepTwo(BuildContext context) {
-  final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _countryNameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
   final size = MediaQuery.of(context).size;
 
   return Container(
@@ -187,41 +195,34 @@ Widget makeStepTwo(BuildContext context) {
               height: 20,
             ),
             Center(
-              child: Stack(
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                        'https://cdn-icons-png.flaticon.com/128/4333/4333609.png'),
-                  ),
-                  Positioned(
-                    left: 60,
-                    top: 60,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.add,
-                        color: Colors.green,
-                        size: 30,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
+              child: Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                height: size.height * 0.15,
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                alignment: Alignment.center,
+                child: IconButton(
+                  icon: Icon(Icons.add_a_photo),
+                  onPressed: () {},
+                ),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             CustomTextField2(
-                hintText: "Please Enter your full name",
+                hintText: "Please enter your country",
                 isObscure: false,
                 keyboardType: TextInputType.name,
-                controller: _fullNameController),
+                controller: _countryNameController),
             CustomTextField2(
-                hintText: "Please Enter your username",
+                hintText: "Please enter your age",
                 isObscure: false,
-                keyboardType: TextInputType.name,
-                controller: _usernameController),
+                keyboardType: TextInputType.number,
+                controller: _ageController),
             const SizedBox(
               height: 20,
             ),
