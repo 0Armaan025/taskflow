@@ -7,6 +7,8 @@ import 'package:taskflow/constants/Pallete.dart';
 import 'package:taskflow/constants/constants.dart';
 import 'package:taskflow/constants/utils.dart';
 
+import '../home/home_screen.dart';
+
 class CreateProfileScreen extends StatefulWidget {
   const CreateProfileScreen({super.key});
 
@@ -15,22 +17,19 @@ class CreateProfileScreen extends StatefulWidget {
 }
 
 class _CreateProfileScreenState extends State<CreateProfileScreen> {
-  double percent = 0.2;
-  String percentage = "33.3%";
+  double percent = 0.5;
+  String percentage = "50.0%";
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     if (stepIndex == 2) {
-      percentage = "66.6%";
-      percent = 0.6;
-    } else if (stepIndex == 3) {
-      percentage = "99.99%";
+      percentage = "100.0%";
       percent = 1;
     } else {
       percent = 0.2;
-      percentage = "33.3%";
+      percentage = "50.0%";
     }
     setState(() {});
   }
@@ -62,7 +61,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
               children: [
                 Center(
                   child: Text(
-                    "STEP $stepIndex/3",
+                    "STEP $stepIndex/2",
                     style: GoogleFonts.antic(
                       color: Colors.black,
                       fontSize: 40,
@@ -91,8 +90,8 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
 }
 
 Widget makeStepOne(BuildContext context) {
-  final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   final size = MediaQuery.of(context).size;
 
   return Container(
@@ -102,7 +101,7 @@ Widget makeStepOne(BuildContext context) {
     child: Card(
       elevation: 9.0,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromARGB(255, 237, 247, 255),
         ),
         child: Column(
@@ -113,7 +112,7 @@ Widget makeStepOne(BuildContext context) {
             Center(
               child: Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
                         'https://cdn-icons-png.flaticon.com/128/4333/4333609.png'),
@@ -122,7 +121,7 @@ Widget makeStepOne(BuildContext context) {
                     left: 60,
                     top: 60,
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.add,
                         color: Colors.green,
                         size: 30,
@@ -140,12 +139,12 @@ Widget makeStepOne(BuildContext context) {
                 hintText: "Please Enter your full name",
                 isObscure: false,
                 keyboardType: TextInputType.name,
-                controller: _fullNameController),
+                controller: fullNameController),
             CustomTextField2(
                 hintText: "Please Enter your username",
                 isObscure: false,
                 keyboardType: TextInputType.name,
-                controller: _usernameController),
+                controller: usernameController),
             const SizedBox(
               height: 20,
             ),
@@ -159,11 +158,11 @@ Widget makeStepOne(BuildContext context) {
                   textColor: Pallete().buttonTextColor,
                   text: "Continue ->",
                   onTap: () {
-                    if (stepIndex < 3) {
+                    if (stepIndex < 2) {
                       stepIndex++;
                     }
 
-                    moveScreen(context, CreateProfileScreen(),
+                    moveScreen(context, const CreateProfileScreen(),
                         isPushReplacement: true);
                   }),
             ),
@@ -175,8 +174,8 @@ Widget makeStepOne(BuildContext context) {
 }
 
 Widget makeStepTwo(BuildContext context) {
-  final TextEditingController _countryNameController = TextEditingController();
-  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController countryNameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
   final size = MediaQuery.of(context).size;
 
   return Container(
@@ -186,7 +185,7 @@ Widget makeStepTwo(BuildContext context) {
     child: Card(
       elevation: 9.0,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromARGB(255, 237, 247, 255),
         ),
         child: Column(
@@ -205,7 +204,7 @@ Widget makeStepTwo(BuildContext context) {
                 ),
                 alignment: Alignment.center,
                 child: IconButton(
-                  icon: Icon(Icons.add_a_photo),
+                  icon: const Icon(Icons.add_a_photo),
                   onPressed: () {},
                 ),
               ),
@@ -217,12 +216,12 @@ Widget makeStepTwo(BuildContext context) {
                 hintText: "Please enter your country",
                 isObscure: false,
                 keyboardType: TextInputType.name,
-                controller: _countryNameController),
+                controller: countryNameController),
             CustomTextField2(
                 hintText: "Please enter your age",
                 isObscure: false,
                 keyboardType: TextInputType.number,
-                controller: _ageController),
+                controller: ageController),
             const SizedBox(
               height: 20,
             ),
@@ -236,12 +235,8 @@ Widget makeStepTwo(BuildContext context) {
                   textColor: Pallete().buttonTextColor,
                   text: "Continue ->",
                   onTap: () {
-                    if (stepIndex < 3) {
-                      stepIndex++;
-                    }
-
-                    moveScreen(context, CreateProfileScreen(),
-                        isPushReplacement: true);
+                    if (stepIndex < 2) {}
+                    moveScreen(context, HomeScreen(), isPushReplacement: true);
                   }),
             ),
           ],
