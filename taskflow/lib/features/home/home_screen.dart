@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
+import 'package:taskflow/common/widgets/task_widget.dart';
 import 'package:taskflow/constants/Pallete.dart';
 import 'package:taskflow/constants/utils.dart';
 
@@ -53,14 +53,35 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(
-              height: 0,
+              height: 5,
             ),
-            Center(
-              child: Container(
-                height: 500,
-                width: 500,
-                child: Lottie.asset("assets/lottie/bird_animation.json",
-                    height: 300),
+            Image(
+              image: NetworkImage(
+                  'https://i.pinimg.com/originals/68/89/0a/68890a002716ec49c934abd0bc84e48d.gif'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: double.infinity,
+              alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.only(
+                left: 12,
+                top: 3,
+              ),
+              child: Text(
+                "Your Tasks:",
+                style: GoogleFonts.dmSans(
+                  fontSize: 25,
+                ),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  TaskWidget(),
+                ],
               ),
             ),
           ],

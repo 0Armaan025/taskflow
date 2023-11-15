@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskflow/features/home/home_screen.dart';
 import 'package:taskflow/features/onboarding_screen/screens/onboarding_screen.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: OnBoardingScreen(),
+      home: HomeScreen(),
     );
   }
 }
