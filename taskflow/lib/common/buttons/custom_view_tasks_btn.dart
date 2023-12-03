@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taskflow/constants/Pallete.dart';
 
 class CustomViewTasksButton extends StatefulWidget {
-  const CustomViewTasksButton({super.key});
+  final VoidCallback onTap;
+  const CustomViewTasksButton({super.key, required this.onTap});
 
   @override
   State<CustomViewTasksButton> createState() => _CustomViewTasksButtonState();
@@ -15,6 +16,7 @@ class _CustomViewTasksButtonState extends State<CustomViewTasksButton> {
     final size = MediaQuery.of(context).size;
 
     return InkWell(
+      onTap: widget.onTap,
       child: Container(
         height: size.height * 0.08,
         width: double.infinity,

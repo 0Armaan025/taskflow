@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taskflow/common/buttons/custom_view_tasks_btn.dart';
+import 'package:taskflow/common/drawer/drawer.dart';
 import 'package:taskflow/common/lists/custom_tasks_list.dart';
 import 'package:taskflow/constants/Pallete.dart';
 import 'package:taskflow/constants/utils.dart';
+import 'package:taskflow/features/add_task/add_task_screen.dart';
 import 'package:taskflow/features/backend/quote_generation/quote_generation.dart';
+import 'package:taskflow/features/view_tasks/view_tasks_screen.dart';
 
 import '../../common/navbar/navbar.dart';
 
@@ -34,8 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Pallete().buttonColor,
         onPressed: () {},
+        child: IconButton(
+          onPressed: () {
+            moveScreen(context, AddTaskScreen());
+          },
+          icon: Icon(Icons.add, color: Colors.black),
+        ),
       ),
+      drawer: makeDrawer(context),
       appBar: makeAppBar(context),
       bottomNavigationBar: makeNavBar(),
       body: SingleChildScrollView(
@@ -86,7 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20,
             ),
             Center(
-              child: CustomViewTasksButton(),
+              child: CustomViewTasksButton(
+                onTap: () {
+                  moveScreen(context, ViewTasksScreen());
+                },
+              ),
             ),
             const SizedBox(
               height: 15,

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:taskflow/constants/constants.dart';
+import 'package:taskflow/constants/utils.dart';
+import 'package:taskflow/features/home/home_screen.dart';
 
 class makeNavBar extends StatefulWidget {
   const makeNavBar({super.key});
@@ -9,7 +13,6 @@ class makeNavBar extends StatefulWidget {
 }
 
 class _makeNavBarState extends State<makeNavBar> {
-  int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -74,8 +77,15 @@ class _makeNavBarState extends State<makeNavBar> {
                   text: 'Profile',
                 ),
               ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {},
+              selectedIndex: selectedIndex,
+              onTabChange: (index) {
+                if (index == 0) {
+                  selectedIndex = index;
+                  setState(() {
+                    moveScreen(context, HomeScreen(), isPushReplacement: true);
+                  });
+                }
+              },
             ),
           ),
         ));
