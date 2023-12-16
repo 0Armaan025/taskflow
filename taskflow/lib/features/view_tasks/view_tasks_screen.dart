@@ -22,6 +22,25 @@ class _ViewTasksScreenState extends State<ViewTasksScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Text(
+                "Here are your tasks 🤓",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TaskWidget(),
+            Divider(
+              color: Colors.black,
+            ),
             TaskWidget(),
           ],
         ),

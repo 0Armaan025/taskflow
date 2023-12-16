@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,42 +24,65 @@ class _TaskWidgetState extends State<TaskWidget> {
           borderRadius: BorderRadius.circular(12),
         ),
         alignment: Alignment.center,
-        child: Column(
+        child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 5, bottom: 5),
-                child: Text(
-                  "Title",
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
+            Positioned(
+                child: IconButton(
+              icon: Icon(
+                CupertinoIcons.trash_fill,
+                color: Colors.black,
+                size: 30,
+              ),
+              onPressed: () {},
+            )),
+            Positioned(
+                top: 110,
+                child: IconButton(
+                  icon: Icon(
+                    CupertinoIcons.pen,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onPressed: () {},
+                )),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    padding: const EdgeInsets.only(
+                        left: 10, right: 10, top: 5, bottom: 5),
+                    child: Text(
+                      "Title",
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 30),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 5, bottom: 5),
-                child: Text(
-                  "Id irure veniam veniam mollit consequat dolor proident reprehenderit Lorem non aliqua tempor et.",
-                  style: GoogleFonts.roboto(
-                    fontSize: 12,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    padding: const EdgeInsets.only(
+                        left: 10, right: 10, top: 5, bottom: 5),
+                    child: Text(
+                      "Id irure veniam veniam mollit consequat dolor proident reprehenderit Lorem non aliqua tempor et.",
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

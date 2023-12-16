@@ -4,6 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:taskflow/constants/constants.dart';
 import 'package:taskflow/constants/utils.dart';
 import 'package:taskflow/features/home/home_screen.dart';
+import 'package:taskflow/features/teams/teams_screen.dart';
 
 class makeNavBar extends StatefulWidget {
   const makeNavBar({super.key});
@@ -84,6 +85,9 @@ class _makeNavBarState extends State<makeNavBar> {
                   setState(() {
                     moveScreen(context, HomeScreen(), isPushReplacement: true);
                   });
+                } else if (index == 1) {
+                  selectedIndex = index;
+                  moveScreen(context, TeamsScreen(), isPushReplacement: true);
                 }
               },
             ),
